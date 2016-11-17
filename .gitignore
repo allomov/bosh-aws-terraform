@@ -1,0 +1,7 @@
+*.tfvars
+*.backup
+*.tfstate
+.vagrant
+.envrc
+sample_bootstrap.properties
+tmp*
