@@ -1,0 +1,29 @@
+#!/bin/bash -e
+# Usage example: ./bin/find-ami-ids-by-name ubuntu/images/ebs-ssd/ubuntu-xenial-16.04-amd64-server-20161115
+
+ami_name=$1
+
+aws_regions="us-east-1
+us-west-2
+us-west-1
+eu-west-1
+eu-central-1
+ap-southeast-1
+ap-northeast-1
+ap-southeast-2
+ap-northeast-2
+ap-south-1
+sa-east-1
+"
+
+for aws_region in $aws_regions
+do
+  ami_id_json=$(aws ec2 describe-images --filters "Name=name,Values=$ami_name" --region="$aws_region" --query 'Images[0].{ID:ImageId}')
+  if [[ $ami_id_json == "null" ]]
+  then
+    echo "ERROR: Can't find AMI with name \"$ami_name\" for $aws_region region"
+  else
+    ami_id=$(echo $ami_id_json | egrep -m1 -oe 'ami-.{8}')
+    echo "$aws_region = $ami_id"
+  fi
+done
