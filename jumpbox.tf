@@ -38,7 +38,7 @@ resource "aws_instance" "jumpbox" {
             "sudo apt-get update",
             "sudo apt-get install ansible -y",
             "sudo ansible-galaxy install allomov.bosh-jumpbox",
-            "ansible-playbook -i /etc/ansible/roles/allomov.bosh-jumpbox/examples/localhost/hosts /etc/ansible/roles/allomov.bosh-jumpbox/examples/localhost/playbook.yml"
+            "sudo ansible-playbook -i /etc/ansible/roles/allomov.bosh-jumpbox/examples/localhost/hosts /etc/ansible/roles/allomov.bosh-jumpbox/examples/localhost/playbook.yml"
         ]
     }
 
