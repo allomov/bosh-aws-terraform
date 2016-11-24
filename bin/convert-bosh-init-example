@@ -1,8 +1,0 @@
-#!/bin/env ruby
-
-"SECRET-ACCESS-KEY" 
-"ACCESS-KEY-ID"
-"ELASTIC-IP"
-
-
-cloud_provider.ssh_tunnel.private_key: ${private_key}

@@ -51,3 +51,9 @@ Upon execution, the script creates:
 
 The script, as soon as it finish creating the jumpbox, will create the necessary environment and configure the properties file. Also, it will start the bootstrapping process.
 
+
+It creates 
+
+`public_subnet`
+`private_subnet` = `bosh_subnet`
+
